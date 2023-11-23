@@ -1,9 +1,9 @@
+import Collaborator from "./collaborators/Collaborator";
+
 const Home = () => {
   return (
     <div>
-      <h1>home</h1>
-      {/* btn */}
-      
+      <Collaborator />
     </div>
   );
 };
