@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 SignIn.jsx
-Private.jsx
 .env.local
 
 # Editor directories and files
