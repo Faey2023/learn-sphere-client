@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 const Collaborator = () => {
   const [partners, setPartners] = useState([]);
   useEffect(() => {
-    fetch("../../../assets/data/Partners.json")
+    fetch("https://12-server-nine.vercel.app/partners")
       .then((res) => res.json())
       .then((data) => {
         setPartners(data);

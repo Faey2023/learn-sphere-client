@@ -99,7 +99,7 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <Link to="/signin" className="text-xl">
+            <Link to="/signin" className="text-xl btn bg-[#d389d3]">
               Sign In
             </Link>
           )}
