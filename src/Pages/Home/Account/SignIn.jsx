@@ -1,11 +1,17 @@
 import { useForm } from "react-hook-form";
 import UseAuth from "../../../hooks/UseAuth";
 import loginAnimation from "../../../assets/data/loginAnimation.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+import SharedSignIn from "../../../Shared/SharedSignIn";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -17,7 +23,24 @@ const SignIn = () => {
     login(data.email, data.password)
       .then((res) => {
         console.log(res.user);
-        toast.success("User sign in successfully");
+        Swal.fire({
+          title: "Login successful!",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+          },
+        });
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);
@@ -90,8 +113,8 @@ const SignIn = () => {
                   Go to Sign Up
                 </Link>
               </h4>
-              {/* <SharedSignIn /> */}
             </form>
+            <SharedSignIn />
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const Collaborator = () => {
   const [partners, setPartners] = useState([]);
   useEffect(() => {
-    fetch("/data/Partners.json")
+    fetch("../../../assets/data/Partners.json")
       .then((res) => res.json())
       .then((data) => {
         setPartners(data);
@@ -21,7 +21,10 @@ const Collaborator = () => {
         <Marquee>
           <div className="flex gap-5">
             {partners.map((partner) => (
-              <div className="w-40 h-40 border-2 flex flex-col justify-center items-center rounded-xl border-[#ca84ca]">
+              <div
+                key={partner.id}
+                className="w-40 h-40 border-2 flex flex-col justify-center items-center rounded-xl border-[#ca84ca]"
+              >
                 <img className="h-32 w-32" src={partner.brandImage} alt="" />
               </div>
             ))}

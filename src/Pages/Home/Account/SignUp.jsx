@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import SharedSignIn from "../../../Shared/SharedSignIn";
 
 const SignUp = () => {
   const { createUser, updateUser } = UseAuth();
@@ -135,11 +136,12 @@ const SignUp = () => {
               </div>
               <h4 className="text-green-500 text-xl">
                 Already have an account?
-                <Link to="/login" className="font-bold">
-                  Go to login
+                <Link to="/sign In" className="font-bold">
+                  Go to Sign In
                 </Link>
               </h4>
             </form>
+            <SharedSignIn />
           </div>
         </div>
       </div>

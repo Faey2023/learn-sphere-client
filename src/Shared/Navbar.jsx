@@ -78,20 +78,30 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img alt="user image" src={user.photoUrl} />
+                  <img alt="user image" src={user.photoURL} />
                 </div>
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-xl"
               >
                 <li>
-                  <Link onClick={handleLogout}>Logout</Link>
+                  <p>{user.displayName}</p>
+                </li>
+                <li>
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li>
+                  <Link className="text-red-700" onClick={handleLogout}>
+                    Logout
+                  </Link>
                 </li>
               </ul>
             </div>
           ) : (
-            <Link to='/signin' className="text-xl">Sign In</Link>
+            <Link to="/signin" className="text-xl">
+              Sign In
+            </Link>
           )}
         </div>
       </div>
