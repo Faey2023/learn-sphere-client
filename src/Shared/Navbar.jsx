@@ -1,6 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/online-education-removebg-preview.png";
+import UseAuth from "../hooks/UseAuth";
+import toast from "react-hot-toast";
 const Navbar = () => {
+  const { user, logout } = UseAuth();
+  const handleLogout = () => {
+    logout()
+      .then((res) => {
+        toast.success("Logged out successfully");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+  };
   const navLinks = (
     <>
       <NavLink
@@ -62,7 +74,25 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="text-xl">Sign In</Link>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img alt="user image" src={user.photoUrl} />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link onClick={handleLogout}>Logout</Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to='/signin' className="text-xl">Sign In</Link>
+          )}
         </div>
       </div>
     </>

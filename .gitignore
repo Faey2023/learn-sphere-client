@@ -11,7 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
-Marquee
+SignIn.jsx
+Private.jsx
+.env.local
 
 # Editor directories and files
 .vscode/*
