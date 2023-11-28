@@ -2,16 +2,19 @@ import { FaFacebookF } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { GrGithub } from "react-icons/gr";
 import UseAuth from "../hooks/UseAuth";
-import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import {useNavigate } from "react-router-dom";
 
 const SharedSignIn = () => {
   const { google, github, facebook } = UseAuth();
+  const navigate = useNavigate();
+
 
   const handleSignIn = (data) => {
     data()
       .then((res) => {
         toast.success("Logged in successfully.");
+        navigate('/');
       })
       .catch((err) => {
         toast.error(err.code);

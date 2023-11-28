@@ -2,12 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/online-education-removebg-preview.png";
 import UseAuth from "../hooks/UseAuth";
 import toast from "react-hot-toast";
+import { FaSearch } from "react-icons/fa";
 const Navbar = () => {
   const { user, logout } = UseAuth();
   const handleLogout = () => {
     logout()
       .then((res) => {
         toast.success("Logged out successfully");
+        console.log(res);
       })
       .catch((err) => {
         toast.error(err.code);
@@ -73,12 +75,22 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
+        {/* search bar */}
+
+        <div className="join ml-5">
+          <input
+            className="input input-bordered join-item"
+            placeholder="Classes"
+          />
+          <button className="btn join-item"><FaSearch/></button>
+        </div>
+
         <div className="navbar-end">
           {user ? (
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img alt="user image" src={user.photoURL} />
+                  <img alt="user image" src={user?.photoURL} />
                 </div>
               </label>
               <ul

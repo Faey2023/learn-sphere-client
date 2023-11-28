@@ -3,13 +3,14 @@ import UseAuth from "../../../hooks/UseAuth";
 import loginAnimation from "../../../assets/data/loginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
-import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { login } = UseAuth();
 
   const from = location.state?.from?.pathname || "/";
   const {
@@ -44,10 +45,9 @@ const SignIn = () => {
       })
       .catch((err) => {
         console.log(err.message);
-        toast.error(err.message);
+        toast.error(err.code);
       });
   };
-  const { login } = UseAuth();
 
   // console.log(watch("example"));
 
@@ -105,7 +105,7 @@ const SignIn = () => {
                 )}
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-green-500 text-white">Sign Up</button>
+                <button className="btn bg-green-500 text-white">Sign In</button>
               </div>
               <h4 className="text-green-500 text-xl">
                 Don&apos;t have an account?

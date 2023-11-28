@@ -3,9 +3,10 @@ import UseAuth from "../../../hooks/UseAuth";
 import loginAnimation from "../../../assets/data/loginAnimation.json";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
-import toast from "react-hot-toast";
+
 import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const { createUser, updateUser } = UseAuth();
@@ -33,6 +34,7 @@ const SignUp = () => {
           })
           .catch((err) => {
             console.log(err);
+            toast.error(err.code);
           });
         navigate("/");
       })
@@ -80,7 +82,7 @@ const SignUp = () => {
                   <span className="label-text">Image</span>
                 </label>
                 <input
-                  {...register("image")}
+                  {...register("image" , { required: true })}
                   type="url"
                   name="image"
                   placeholder="Image"

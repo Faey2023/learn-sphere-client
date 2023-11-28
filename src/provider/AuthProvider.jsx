@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 export const AuthContext = createContext();
@@ -15,7 +16,7 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
-const AuthProvider = ({ children }) => {
+const AuthProvider = ({children}) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   const createUser = (email, password) => {
@@ -42,7 +43,7 @@ const AuthProvider = ({ children }) => {
 
   const updateUser = (name, image) => {
     setLoading(true);
-    return updateUser(auth.loggedUser, {
+    return updateProfile(auth.loggedUser, {
       displayName: name,
       photoURL: image,
     });

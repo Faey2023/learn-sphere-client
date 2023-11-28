@@ -38,7 +38,9 @@ const Feedback = () => {
             {/* <div className="flex flex-col justify-center items-center mb-5"></div> */}
             <div className="flex flex-col justify-center items-center">
               <p className="text-xl">🌟 {feedback.text}</p>
-              <p className="text-xl">Student of {feedback.title}</p>
+              <p className="text-xl">
+                Student of <span className="font-bold">{feedback.title}</span>
+              </p>
             </div>
           </SwiperSlide>
         ))}
