@@ -14,7 +14,6 @@ const Banner = () => {
               Effortless class management, seamless enrollment, and progress
               tracking. Our platform streamlines your academic journey.
             </p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
           <div className="flex-1">
             <Lottie

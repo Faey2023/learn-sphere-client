@@ -5,7 +5,7 @@ const Join = () => {
   return (
     <div className="flex">
       <div className="flex-1">
-        <Lottie animationData={teaching} style={{ height: "100vh" }} />
+        <Lottie animationData={teaching} style={{ height: "90vh" }} />
       </div>
       <div className="flex flex-col flex-1 justify-center items-center space-y-5">
         <h1 className="font-bold text-3xl">Become an instructor</h1>
