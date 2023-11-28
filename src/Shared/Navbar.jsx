@@ -24,7 +24,7 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
-        to="/classes"
+        to="/class"
         className={({ isActive }) => (isActive ? "text-[#DDA0DD]" : "")}
       >
         All Classes

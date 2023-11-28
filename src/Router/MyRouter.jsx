@@ -10,6 +10,8 @@ import Profile from "../Layout/dashboard/Profile/Profile";
 import MyEnroll from "../Layout/dashboard/enroll/MyEnroll";
 import Private from "../provider/Private";
 import AllClasses from "../Layout/all classes/AllClasses";
+import ClassDetails from "../Layout/all classes/ClassDetails";
+import AddClass from "../Pages/dahsboard teacher/AddClass";
 
 const MyRouter = createBrowserRouter([
   {
@@ -19,7 +21,7 @@ const MyRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       {
-        path: "/classes",
+        path: "/class",
         element: <AllClasses />,
       },
       {
@@ -30,6 +32,17 @@ const MyRouter = createBrowserRouter([
           </Private>
         ),
       },
+      {
+        path: "/class/:id",
+        element: (
+          <Private>
+            <ClassDetails />
+          </Private>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/class/${params.id}`),
+      },
+      { path: "/addclass", element: <AddClass /> },
     ],
   },
   {

@@ -14,6 +14,7 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -36,9 +37,9 @@ const Classes = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {classes.map((clas) => (
+        {classes.slice(0, 6).map((clas) => (
           <SwiperSlide className="p-5" key={clas._id}>
-            <div>
+            <Link to="/class">
               <img className="w-48 h-28" src={clas.image} alt="" />
               <h3 className="font-bold text-xl">{clas.courseName}</h3>
               <p>{clas.teacherName}</p>
@@ -49,10 +50,10 @@ const Classes = () => {
                   value={clas.rating}
                   readOnly
                 ></Rating>
-                <p>({clas.enrollment})</p>
+                <p>({clas.totalEnrollment})</p>
               </div>
               <p className="font-bold">${clas.price}</p>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
