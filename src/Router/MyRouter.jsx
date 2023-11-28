@@ -42,7 +42,14 @@ const MyRouter = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://12-server-nine.vercel.app/class/${params.id}`),
       },
-      { path: "/addclass", element: <AddClass /> },
+      {
+        path: "/addclass",
+        element: (
+          <Private>
+            <AddClass />
+          </Private>
+        ),
+      },
     ],
   },
   {

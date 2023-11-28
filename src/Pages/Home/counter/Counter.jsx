@@ -1,6 +1,7 @@
 import classAnimation from "../../../assets/data/classAnimation.json";
 import Lottie from "lottie-react";
 import UseClass from "../../../hooks/UseClass";
+import CountUp from "react-countup";
 
 const Counter = () => {
   const [classes] = UseClass();
@@ -11,15 +12,15 @@ const Counter = () => {
         <div className="flex flex-1 justify-center text-center items-center gap-5">
           <div className="text-4xl font-bold border p-5">
             <h1>Number of classes</h1>
-            {classes.length}
+            <CountUp end={classes.length} duration={5} />
           </div>
           <div className="text-4xl font-bold border p-5">
             <h1>Total Users</h1>
-            {classes.length}
+            <CountUp end={100} duration={5} />
           </div>
           <div className="text-4xl font-bold border p-5">
             <h1>Total Enrollment</h1>
-            {classes.length}
+            <CountUp end={50} duration={5} />
           </div>
         </div>
         <div>
