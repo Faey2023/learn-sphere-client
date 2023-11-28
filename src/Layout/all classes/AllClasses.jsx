@@ -9,7 +9,7 @@ const AllClasses = () => {
   const [classes] = UseClass();
   // const [classes, setClasses] = useState([]);
   // useEffect(() => {
-  //   fetch("http://localhost:5000/class")
+  //   fetch("https://12-server-nine.vercel.app/class")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setClasses(data);
@@ -35,7 +35,7 @@ const AllClasses = () => {
                   value={clas.rating}
                   readOnly
                 ></Rating>
-                <p>({clas.enrollment})</p>
+                <p>({clas.totalEnrollment})</p>
               </div>
               <p className="font-bold">${clas.price}</p>
             </div>
