@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const axiosSecure = axios.create({
+const axiosSecure = axios.create({
 //   baseURL: "https://12-server-nine.vercel.app",
   baseURL: "http://localhost:5000",
 });

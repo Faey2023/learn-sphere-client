@@ -35,6 +35,17 @@ const Navbar = () => {
       >
         Teach on Learn Sphere
       </NavLink>
+      {/* search bar */}
+      {/* <div className="join ml-5">
+        <input
+          className="input input-bordered join-item"
+          placeholder="Classes"
+        />
+        <button className="btn join-item">
+          <FaSearch />
+        </button>
+      </div> */}
+      {/*  */}
     </>
   );
   return (
@@ -74,15 +85,6 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-5 text-xl">
             {navLinks}
           </ul>
-        </div>
-        {/* search bar */}
-
-        <div className="join ml-5">
-          <input
-            className="input input-bordered join-item"
-            placeholder="Classes"
-          />
-          <button className="btn join-item"><FaSearch/></button>
         </div>
 
         <div className="navbar-end">

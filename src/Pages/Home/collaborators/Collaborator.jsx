@@ -13,7 +13,7 @@ const Collaborator = () => {
   return (
     <>
       <div className="my-5">
-        <h1 className=" text-2xl block text-center font-bold italic  my-5">
+        <h1 className="text-3xl font-bold text-center my-4">
           Trusted by over
           <span className="text-sky-500"> 15,000 </span>companies and millions
           of learners worldwide.

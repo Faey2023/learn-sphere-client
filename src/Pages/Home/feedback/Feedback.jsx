@@ -19,8 +19,8 @@ const Feedback = () => {
   }, []);
   return (
     <div className="my-10">
-      <h1 className="text-2xl block text-center font-bold italic my-5">
-        <span className="text-sky-500">Feedback</span> from our students.
+      <h1 className="text-5xl font-bold text-center mt-3">
+        <span className="text-[#CD9003]">Feedback</span> from our students.
       </h1>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {feedbacks.map((feedback) => (
