@@ -16,7 +16,7 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   const createUser = (email, password) => {
@@ -43,7 +43,7 @@ const AuthProvider = ({children}) => {
 
   const updateUser = (name, image) => {
     setLoading(true);
-    return updateProfile(auth.loggedUser, {
+    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: image,
     });

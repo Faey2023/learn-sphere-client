@@ -35,17 +35,6 @@ const Navbar = () => {
       >
         Teach on Learn Sphere
       </NavLink>
-      {/* search bar */}
-      {/* <div className="join ml-5">
-        <input
-          className="input input-bordered join-item"
-          placeholder="Classes"
-        />
-        <button className="btn join-item">
-          <FaSearch />
-        </button>
-      </div> */}
-      {/*  */}
     </>
   );
   return (

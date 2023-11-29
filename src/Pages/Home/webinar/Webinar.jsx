@@ -4,17 +4,17 @@ import "aos/dist/aos.css";
 const Webinar = () => {
   AOS.init();
   return (
-    <div className="flex flex-col md:flex-row mb-5">
+    <div className="flex flex-col gap-5 md:flex-row mb-5">
       <div
         data-aos="flip-left"
         data-aos-duration="1000"
         className="flex-1 flex flex-col justify-center items-center text-center space-y-3"
       >
-        <h1 className="text-3xl font-bold">Join our monthly webinar</h1>
+        <h1 className="text-3xl font-bold">Join our weekly webinar</h1>
         <p className="font-medium text-xl">
           Join us this week for an exclusive session with Jhankar Mahbub, CEO &
           Founder of Programming Hero, as he shares invaluable insights on
-          forging a successful career in web development. Gain firsthand
+          forging a successful career in Web Development. Gain firsthand
           knowledge from a seasoned expert, discover key strategies for success,
           and embark on a transformative journey towards a fulfilling career.
         </p>

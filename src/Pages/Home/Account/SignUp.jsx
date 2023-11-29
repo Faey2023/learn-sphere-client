@@ -7,10 +7,13 @@ import Lottie from "lottie-react";
 import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
 import toast from "react-hot-toast";
+import UseAxiosPublic from "../../../hooks/UseAxiosPublic";
 
 const SignUp = () => {
+  const axiosPublic = UseAxiosPublic();
   const { createUser, updateUser } = UseAuth();
   const navigate = useNavigate();
+
   const {
     register,
     reset,
@@ -23,20 +26,29 @@ const SignUp = () => {
     createUser(data.email, data.password)
       .then((res) => {
         console.log(res.user);
-        updateUser(data.name, data.image)
-          .then(() => {
-            reset();
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+        };
+        axiosPublic.post("/user", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            // reset();
             Swal.fire({
               title: "User created successfully",
-              text: "You clicked the button!",
+              text: "You Data is stored",
               icon: "success",
             });
+            // navigate("/");
+          }
+        });
+        updateUser(data.name, data.image)
+          .then((res) => {
+            //store user
           })
           .catch((err) => {
             console.log(err);
             toast.error(err.code);
           });
-        navigate("/");
       })
       .catch((err) => {
         console.log(err.code);
@@ -50,7 +62,7 @@ const SignUp = () => {
     <div>
       <div className="hero">
         <div className="hero-content mt-5 flex-col lg:flex-row-reverse">
-          <div className="text-center">
+          <div className="text-center hidden lg:flex">
             <Lottie
               animationData={loginAnimation}
               alt="animated image for registration page"
@@ -82,7 +94,7 @@ const SignUp = () => {
                   <span className="label-text">Image</span>
                 </label>
                 <input
-                  {...register("image" , { required: true })}
+                  {...register("image", { required: true })}
                   type="url"
                   name="image"
                   placeholder="Image"

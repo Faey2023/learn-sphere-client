@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Join = () => {
   return (
     <div className="flex">
-      <div className="flex-1">
+      <div className="flex-1 hidden lg:flex">
         <Lottie animationData={teaching} style={{ height: "90vh" }} />
       </div>
       <div className="flex flex-col flex-1 justify-center items-center space-y-5">

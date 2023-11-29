@@ -4,6 +4,18 @@ const Dashboard = () => {
   const links = (
     <>
       <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-xl font-medium"
+            : "text-black text-xl font-medium"
+        }
+      >
+        Home
+      </NavLink>
+      {/* admin*/}
+      {/* student */}
+      <NavLink
         to="/dashboard/profile"
         className={({ isActive }) =>
           isActive
@@ -23,6 +35,17 @@ const Dashboard = () => {
       >
         My Enroll
       </NavLink>
+      {/* teacher */}
+      <NavLink
+        to="/dashboard/addclass"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-xl font-medium"
+            : "text-black text-xl font-medium"
+        }
+      >
+        Add Class
+      </NavLink>
     </>
   );
   return (
@@ -33,13 +56,13 @@ const Dashboard = () => {
       </div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col items-center space-y-5">
           {/* Page content here */}
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            Open drawer
+            Open dashboard settings
           </label>
           <Outlet />
         </div>
@@ -49,7 +72,7 @@ const Dashboard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-sky-100 text-base-content">
+          <ul className="menu p-4 w-80 min-h-full bg-sky-100">
             {/* Sidebar content here */}
             {links}
           </ul>

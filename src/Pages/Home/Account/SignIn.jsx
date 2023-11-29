@@ -55,7 +55,7 @@ const SignIn = () => {
     <div>
       <div className="hero">
         <div className="hero-content mt-5 flex-col lg:flex-row">
-          <div className="text-center">
+          <div className="text-center hidden lg:flex">
             <Lottie
               animationData={loginAnimation}
               alt="animated image for registration page"

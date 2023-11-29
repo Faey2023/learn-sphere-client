@@ -15,7 +15,7 @@ const Banner = () => {
               tracking. Our platform streamlines your academic journey.
             </p>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 hidden lg:flex">
             <Lottie
               animationData={bannerAnimation}
               style={{ height: "80vh" }}

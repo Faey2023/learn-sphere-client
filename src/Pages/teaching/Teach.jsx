@@ -44,7 +44,7 @@ const Teach = () => {
         <span className="text-purple-400">Learn Sphere.</span>
       </h1>
       <div className="flex flex-col md:flex-row p-5 justify-around">
-        <div className="">
+        <div className="hidden lg:flex">
           <Lottie style={{ height: "55vh" }} animationData={form} />
         </div>
         <div className="my-10 max-w-md mx-auto border p-10">
