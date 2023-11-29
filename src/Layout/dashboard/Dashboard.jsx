@@ -1,4 +1,9 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
+import { SiGoogleclassroom } from "react-icons/si";
+import { IoIosAddCircle } from "react-icons/io";
+import { FaUsers } from "react-icons/fa6";
 import logo from "../../assets/images/online-education-removebg-preview.png";
 const Dashboard = () => {
   const links = (
@@ -7,32 +12,79 @@ const Dashboard = () => {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "text-[#DDA0DD] text-xl font-medium"
-            : "text-black text-xl font-medium"
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
         }
       >
+        <FaHome className="inline-block mr-2" />
         Home
       </NavLink>
       {/* admin*/}
+      <NavLink
+        to="/dashboard/request"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
+        }
+      >
+        <FaUsers className="inline-block mr-2" />
+        Teacher Request
+      </NavLink>
+      <NavLink
+        to="/dashboard/users"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
+        }
+      >
+        <FaUsers className="inline-block mr-2" />
+        Total users
+      </NavLink>
+      <NavLink
+        to="/dashboard/profile"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
+        }
+      >
+        <FaUsers className="inline-block mr-2" />
+        Profile
+      </NavLink>
+      <NavLink
+        to="/dashboard/users"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
+        }
+      >
+        <FaUsers className="inline-block mr-2" />
+        Total users
+      </NavLink>
       {/* student */}
       <NavLink
         to="/dashboard/profile"
         className={({ isActive }) =>
           isActive
-            ? "text-[#DDA0DD] text-xl font-medium"
-            : "text-black text-xl font-medium"
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
         }
       >
+        <MdAccountCircle className="inline-block mr-2" />
         My Profile
       </NavLink>
       <NavLink
         to="/dashboard/myenroll"
         className={({ isActive }) =>
           isActive
-            ? "text-[#DDA0DD] text-xl font-medium"
-            : "text-black text-xl font-medium"
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
         }
       >
+        <SiGoogleclassroom className="inline-block mr-2" />
         My Enroll
       </NavLink>
       {/* teacher */}
@@ -40,11 +92,34 @@ const Dashboard = () => {
         to="/dashboard/addclass"
         className={({ isActive }) =>
           isActive
-            ? "text-[#DDA0DD] text-xl font-medium"
-            : "text-black text-xl font-medium"
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
         }
       >
+        <IoIosAddCircle className="inline-block mr-2" />
         Add Class
+      </NavLink>
+      <NavLink
+        to="/dashboard/addclass"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
+        }
+      >
+        <IoIosAddCircle className="inline-block mr-2" />
+        My Class
+      </NavLink>
+      <NavLink
+        to="/dashboard/profile"
+        className={({ isActive }) =>
+          isActive
+            ? "text-[#DDA0DD] text-2xl font-medium"
+            : "text-black text-2xl font-medium"
+        }
+      >
+        <IoIosAddCircle className="inline-block mr-2" />
+        Profile
       </NavLink>
     </>
   );

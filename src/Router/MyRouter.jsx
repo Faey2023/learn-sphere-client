@@ -12,6 +12,7 @@ import Private from "../provider/Private";
 import AllClasses from "../Layout/all classes/AllClasses";
 import ClassDetails from "../Layout/all classes/ClassDetails";
 import AddClass from "../Pages/dahsboard teacher/AddClass";
+import TotalUsers from "../Layout/dashboard/users/TotalUsers";
 
 const MyRouter = createBrowserRouter([
   {
@@ -70,6 +71,7 @@ const MyRouter = createBrowserRouter([
         path: "addclass",
         element: <AddClass />,
       },
+      { path: "users", element: <TotalUsers /> },
     ],
   },
 ]);
