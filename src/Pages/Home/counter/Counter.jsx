@@ -22,7 +22,7 @@ const Counter = () => {
           </div>
           <div className="text-4xl font-bold border p-5">
             <h1>Total Enrollment</h1>
-            <CountUp end={50} duration={5} />
+            <CountUp end={10000} duration={5} />
           </div>
         </div>
         <div className="hidden lg:flex">

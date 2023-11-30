@@ -29,6 +29,7 @@ const SignUp = () => {
           name: data.name,
           email: data.email,
           image: data.image,
+          role: "student",
         };
         updateUser(data.name, data.image).then().catch();
         axiosPublic.post("/users", userInfo).then((res) => {

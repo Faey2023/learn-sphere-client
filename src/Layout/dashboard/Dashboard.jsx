@@ -10,8 +10,12 @@ import { IoIosAddCircle } from "react-icons/io";
 import { FaUsers } from "react-icons/fa6";
 import logo from "../../assets/images/online-education-removebg-preview.png";
 import UseAuth from "../../hooks/UseAuth";
+import UseTotalUsers from "../../hooks/UseTotalusers";
+import UseTeacherRequest from "../../hooks/UseTeacherRequest";
 const Dashboard = () => {
-  
+  const [users] = UseTotalUsers();
+  const [teachers] = UseTeacherRequest();
+
   const links = (
     <>
       <NavLink
@@ -37,81 +41,90 @@ const Dashboard = () => {
         My Profile
       </NavLink>
       {/* admin*/}
-      <div className="flex flex-col">
-        <NavLink
-          to="/dashboard/request"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#DDA0DD] text-2xl font-medium"
-              : "text-black text-2xl font-medium"
-          }
-        >
-          <MdPendingActions className="inline-block mr-2" />
-          Teacher Request
-        </NavLink>
-        <NavLink
-          to="/dashboard/users"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#DDA0DD] text-2xl font-medium"
-              : "text-black text-2xl font-medium"
-          }
-        >
-          <FaUsers className="inline-block mr-2" />
-          Total users
-        </NavLink>
+      {users.role === "admin" || (
+        <div className="flex flex-col">
+          <NavLink
+            to="/dashboard/request"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#DDA0DD] text-2xl font-medium"
+                : "text-black text-2xl font-medium"
+            }
+          >
+            <MdPendingActions className="inline-block mr-2" />
+            Teacher Request
+          </NavLink>
+          <NavLink
+            to="/dashboard/users"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#DDA0DD] text-2xl font-medium"
+                : "text-black text-2xl font-medium"
+            }
+          >
+            <FaUsers className="inline-block mr-2" />
+            Total users
+          </NavLink>
 
-        <NavLink
-          to="/dashboard/allclass"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#DDA0DD] text-2xl font-medium"
-              : "text-black text-2xl font-medium"
-          }
-        >
-          <SiGoogleclassroom className="inline-block mr-2" />
-          All classes
-        </NavLink>
-      </div>
+          <NavLink
+            to="/dashboard/allclass"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#DDA0DD] text-2xl font-medium"
+                : "text-black text-2xl font-medium"
+            }
+          >
+            <SiGoogleclassroom className="inline-block mr-2" />
+            All classes
+          </NavLink>
+        </div>
+      
+      )}
       {/* student */}
-      <div className="flex flex-col">
-        <NavLink
-          to="/dashboard/myenroll"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#DDA0DD] text-2xl font-medium"
-              : "text-black text-2xl font-medium"
-          }
-        >
-          <MdOutlineDataThresholding className="inline-block mr-2" />
-          My Enroll
-        </NavLink>
-      </div>
+      {users.role === "student" ? (
+        <div className="flex flex-col">
+          <NavLink
+            to="/dashboard/myenroll"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#DDA0DD] text-2xl font-medium"
+                : "text-black text-2xl font-medium"
+            }
+          >
+            <MdOutlineDataThresholding className="inline-block mr-2" />
+            My Enroll
+          </NavLink>
+        </div>
+      ) : (
+        <></>
+      )}
       {/* teacher */}
-      <div className="flex flex-col">
-        <NavLink
-          to="/dashboard/addclass"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#DDA0DD] text-2xl font-medium"
-              : "text-black text-2xl font-medium"
-          }
-        >
-          <IoIosAddCircle className="inline-block mr-2" />
-          Add Class
-        </NavLink>
-        <NavLink
-          to="/dashboard/myclass"
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#DDA0DD] text-2xl font-medium"
-              : "text-black text-2xl font-medium"
-          }
-        >
-          <FaDownload className="inline-block mr-2" />
-          My Class
-        </NavLink>
-      </div>
+      {users.role === "instructor" && (
+        <div className="flex flex-col">
+          <NavLink
+            to="/dashboard/addclass"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#DDA0DD] text-2xl font-medium"
+                : "text-black text-2xl font-medium"
+            }
+          >
+            <IoIosAddCircle className="inline-block mr-2" />
+            Add Class
+          </NavLink>
+          <NavLink
+            to="/dashboard/myclass"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#DDA0DD] text-2xl font-medium"
+                : "text-black text-2xl font-medium"
+            }
+          >
+            <FaDownload className="inline-block mr-2" />
+            My Class
+          </NavLink>
+        </div>
+      )}
     </>
   );
   return (
