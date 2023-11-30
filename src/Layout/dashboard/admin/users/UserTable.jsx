@@ -1,5 +1,8 @@
 const UserTable = ({ user }) => {
-  const { name, email, image,role } = user || {};
+  const { name, email, image, role } = user || {};
+  const handleMakeAdmin = () => {
+    console.log("ok admin");
+  };
   return (
     <>
       {/* row 1 */}
@@ -19,7 +22,10 @@ const UserTable = ({ user }) => {
         <td>{email}</td>
         <td>{role}</td>
         <th>
-          <button className="btn btn-ghost bg-green-800 text-white btn-xs">
+          <button
+            onClick={handleMakeAdmin}
+            className="btn btn-ghost bg-green-800 text-white btn-xs"
+          >
             Make Admin
           </button>
         </th>
