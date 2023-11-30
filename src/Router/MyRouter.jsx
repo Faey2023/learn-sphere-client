@@ -11,8 +11,9 @@ import MyEnroll from "../Layout/dashboard/enroll/MyEnroll";
 import Private from "../provider/Private";
 import AllClasses from "../Layout/all classes/AllClasses";
 import ClassDetails from "../Layout/all classes/ClassDetails";
-import AddClass from "../Pages/dahsboard teacher/AddClass";
-import TotalUsers from "../Layout/dashboard/users/TotalUsers";
+import AddClass from "../Layout/dashboard/teacher/AddClass";
+import TotalUsers from "../Layout/dashboard/admin/users/TotalUsers";
+import TeacherRequest from "../Layout/dashboard/admin/teacher request/TeacherRequest";
 
 const MyRouter = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const MyRouter = createBrowserRouter([
         element: <AddClass />,
       },
       { path: "users", element: <TotalUsers /> },
+      {
+        path: "request",
+        element: <TeacherRequest />,
+      },
     ],
   },
 ]);

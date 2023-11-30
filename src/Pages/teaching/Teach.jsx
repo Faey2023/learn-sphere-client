@@ -86,10 +86,10 @@ const Teach = () => {
               </div>
               <div className="relative z-0 w-full mb-6 group">
                 <Controller
-                  name="experience"
+                  name="category"
                   control={control}
                   defaultValue=""
-                  rules={{ required: "Experience is required" }}
+                  rules={{ required: "Category is required" }}
                   render={({ field }) => (
                     <select {...field} className="your-select-styles">
                       <option value="" disabled>

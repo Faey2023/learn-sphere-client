@@ -84,13 +84,11 @@ const Navbar = () => {
                   <img alt="user image" src={user?.photoURL} />
                 </div>
               </label>
-              <ul
+              <div
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-xl"
               >
-                <li>
-                  <p>{user.displayName}</p>
-                </li>
+                <p>{user.displayName}</p>
                 <li>
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
@@ -99,7 +97,7 @@ const Navbar = () => {
                     Logout
                   </Link>
                 </li>
-              </ul>
+              </div>
             </div>
           ) : (
             <Link to="/signin" className="text-xl btn bg-[#d389d3]">

@@ -1,5 +1,5 @@
 const UserTable = ({ user }) => {
-  const { name, email, image } = user || {};
+  const { name, email, image,role } = user || {};
   return (
     <>
       {/* row 1 */}
@@ -17,6 +17,7 @@ const UserTable = ({ user }) => {
           </div>
         </td>
         <td>{email}</td>
+        <td>{role}</td>
         <th>
           <button className="btn btn-ghost bg-green-800 text-white btn-xs">
             Make Admin
@@ -28,7 +29,3 @@ const UserTable = ({ user }) => {
 };
 
 export default UserTable;
-// ● User name
-// ● User email
-// ● Make admin
-// ● User image

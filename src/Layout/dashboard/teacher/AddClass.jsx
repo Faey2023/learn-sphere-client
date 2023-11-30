@@ -1,8 +1,8 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useForm } from "react-hook-form";
-import UseAxiosSecure from "../../hooks/UseAxiosSecure";
-import UseAuth from "../../hooks/UseAuth";
+import UseAxiosSecure from "../../../hooks/UseAxiosSecure";
+import UseAuth from "../../../hooks/UseAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 

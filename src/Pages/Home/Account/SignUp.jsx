@@ -3,7 +3,6 @@ import UseAuth from "../../../hooks/UseAuth";
 import loginAnimation from "../../../assets/data/loginAnimation.json";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
-
 import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
 import toast from "react-hot-toast";
@@ -30,25 +29,30 @@ const SignUp = () => {
           name: data.name,
           email: data.email,
         };
-        axiosPublic.post("/user", userInfo).then((res) => {
+        updateUser(data.name, data.image).then().catch();
+        axiosPublic.post("/users", userInfo).then((res) => {
           if (res.data.insertedId) {
-            // reset();
+            reset();
             Swal.fire({
-              title: "User created successfully",
-              text: "You Data is stored",
-              icon: "success",
+              title: "User created successfully!",
+              showClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeInUp
+                  animate__faster
+                `,
+              },
+              hideClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeOutDown
+                  animate__faster
+                `,
+              },
             });
-            // navigate("/");
+            navigate("/");
           }
         });
-        updateUser(data.name, data.image)
-          .then((res) => {
-            //store user
-          })
-          .catch((err) => {
-            console.log(err);
-            toast.error(err.code);
-          });
       })
       .catch((err) => {
         console.log(err.code);
