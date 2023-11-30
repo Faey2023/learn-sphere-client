@@ -9,7 +9,9 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { IoIosAddCircle } from "react-icons/io";
 import { FaUsers } from "react-icons/fa6";
 import logo from "../../assets/images/online-education-removebg-preview.png";
+import UseAuth from "../../hooks/UseAuth";
 const Dashboard = () => {
+  
   const links = (
     <>
       <NavLink

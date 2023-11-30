@@ -17,6 +17,7 @@ const TeacherRequest = () => {
             <th>Experience</th>
             <th>Category</th>
             <th>Status</th>
+            <th>Role</th>
           </tr>
         </thead>
         <tbody>
