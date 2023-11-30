@@ -1,16 +1,16 @@
 import { useForm } from "react-hook-form";
-import UseAuth from "../../../hooks/UseAuth";
 import loginAnimation from "../../../assets/data/loginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
 import toast from "react-hot-toast";
+import useAuth from "../../../cutom hooks/useAuth";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login } = UseAuth();
+  const { login } = useAuth();
 
   const from = location.state?.from?.pathname || "/";
   const {

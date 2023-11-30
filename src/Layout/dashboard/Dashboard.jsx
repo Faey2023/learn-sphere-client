@@ -9,12 +9,13 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { IoIosAddCircle } from "react-icons/io";
 import { FaUsers } from "react-icons/fa6";
 import logo from "../../assets/images/online-education-removebg-preview.png";
-import UseAuth from "../../hooks/UseAuth";
 import UseTotalUsers from "../../hooks/UseTotalusers";
 import UseTeacherRequest from "../../hooks/UseTeacherRequest";
+import useAdmin from "../../cutom hooks/useAdmin";
 const Dashboard = () => {
   const [users] = UseTotalUsers();
   const [teachers] = UseTeacherRequest();
+  const isAdmin = useAdmin();
 
   const links = (
     <>
@@ -41,7 +42,7 @@ const Dashboard = () => {
         My Profile
       </NavLink>
       {/* admin*/}
-      {users.role === "admin" || (
+      {isAdmin ? (
         <div className="flex flex-col">
           <NavLink
             to="/dashboard/request"
@@ -78,52 +79,48 @@ const Dashboard = () => {
             All classes
           </NavLink>
         </div>
-      
-      )}
-      {/* student */}
-      {users.role === "student" ? (
-        <div className="flex flex-col">
-          <NavLink
-            to="/dashboard/myenroll"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#DDA0DD] text-2xl font-medium"
-                : "text-black text-2xl font-medium"
-            }
-          >
-            <MdOutlineDataThresholding className="inline-block mr-2" />
-            My Enroll
-          </NavLink>
-        </div>
       ) : (
-        <></>
-      )}
-      {/* teacher */}
-      {users.role === "instructor" && (
-        <div className="flex flex-col">
-          <NavLink
-            to="/dashboard/addclass"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#DDA0DD] text-2xl font-medium"
-                : "text-black text-2xl font-medium"
-            }
-          >
-            <IoIosAddCircle className="inline-block mr-2" />
-            Add Class
-          </NavLink>
-          <NavLink
-            to="/dashboard/myclass"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#DDA0DD] text-2xl font-medium"
-                : "text-black text-2xl font-medium"
-            }
-          >
-            <FaDownload className="inline-block mr-2" />
-            My Class
-          </NavLink>
-        </div>
+        <>
+          {/* student */}
+          <div className="flex flex-col">
+            <NavLink
+              to="/dashboard/myenroll"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#DDA0DD] text-2xl font-medium"
+                  : "text-black text-2xl font-medium"
+              }
+            >
+              <MdOutlineDataThresholding className="inline-block mr-2" />
+              My Enroll
+            </NavLink>
+          </div>
+          {/* teacher */}
+          <div className="flex flex-col">
+            <NavLink
+              to="/dashboard/addclass"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#DDA0DD] text-2xl font-medium"
+                  : "text-black text-2xl font-medium"
+              }
+            >
+              <IoIosAddCircle className="inline-block mr-2" />
+              Add Class
+            </NavLink>
+            <NavLink
+              to="/dashboard/myclass"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#DDA0DD] text-2xl font-medium"
+                  : "text-black text-2xl font-medium"
+              }
+            >
+              <FaDownload className="inline-block mr-2" />
+              My Class
+            </NavLink>
+          </div>
+        </>
       )}
     </>
   );

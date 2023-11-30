@@ -1,24 +1,24 @@
-import { FaFacebookF } from "react-icons/fa";
+// import { FaFacebookF } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
-import { GrGithub } from "react-icons/gr";
-import UseAuth from "../hooks/UseAuth";
+// import { GrGithub } from "react-icons/gr";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import UseAxiosPublic from "../hooks/UseAxiosPublic";
 import Swal from "sweetalert2";
+import useAuth from "../cutom hooks/useAuth";
 
 const SharedSignIn = () => {
-  const { google, github, facebook } = UseAuth();
+  const { google } = useAuth();
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
 
   const handleSignIn = () => {
-    google().then(res => {
+    google().then((res) => {
       const userInfo = {
         name: res.user?.name,
         email: res.user?.email,
       };
-      axiosPublic.post("/users", userInfo).then(res => {
+      axiosPublic.post("/users", userInfo).then((res) => {
         navigate("/");
         //  if (res.data.insertedId) {
         //     // reset();

@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
+import UseAxiosPublic from "../hooks/UseAxiosPublic";
 export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -19,6 +20,7 @@ const facebookProvider = new FacebookAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
+  const axiosPublic = UseAxiosPublic();
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -36,10 +38,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, (loggedUser) => {
       console.log(loggedUser, "user from auth");
-      setUser(loggedUser);
       setLoading(false);
+      setUser(loggedUser);
+      if (loggedUser) {
+        //get token and store client
+        const userInfo = { email: loggedUser.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+          }
+        });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
-  }, []);
+  }, [axiosPublic]);
 
   const updateUser = (name, image) => {
     setLoading(true);

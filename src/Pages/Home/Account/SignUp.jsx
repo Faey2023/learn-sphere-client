@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import UseAuth from "../../../hooks/UseAuth";
 import loginAnimation from "../../../assets/data/loginAnimation.json";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
@@ -7,10 +6,11 @@ import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
 import toast from "react-hot-toast";
 import UseAxiosPublic from "../../../hooks/UseAxiosPublic";
+import useAuth from "../../../cutom hooks/useAuth";
 
 const SignUp = () => {
   const axiosPublic = UseAxiosPublic();
-  const { createUser, updateUser } = UseAuth();
+  const { createUser, updateUser } = useAuth();
   const navigate = useNavigate();
 
   const {

@@ -1,11 +1,11 @@
 import React from "react";
-import UseAuth from "../hooks/UseAuth";
 import { Navigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import loadingAnimation from "../assets/data/loadingAnimation.json";
+import useAuth from "../cutom hooks/useAuth";
 
 const Private = ({ children }) => {
-  const { user, loading } = UseAuth();
+  const { user, loading } = useAuth();
   if (loading) {
     return (
       <Lottie animationData={loadingAnimation} style={{ height: "50vh" }} />

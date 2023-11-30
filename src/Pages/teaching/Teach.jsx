@@ -1,14 +1,14 @@
 import { Controller, useForm } from "react-hook-form";
-import UseAuth from "../../hooks/UseAuth";
 // import axios from "axios";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../hooks/UseAxiosSecure";
 import Lottie from "lottie-react";
 // import { useEffect } from "react";
 import form from "../../assets/data/form.json";
+import useAuth from "../../cutom hooks/useAuth";
 
 const Teach = () => {
-  const { user } = UseAuth();
+  const { user } = useAuth();
   const { email, photoURL, displayName } = user || {};
   const axiosSecure = UseAxiosSecure();
   const {

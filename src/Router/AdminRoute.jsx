@@ -1,11 +1,11 @@
 import Lottie from "lottie-react";
-import UseAuth from "../hooks/UseAuth";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
 import loadingAnimation from "../assets/data/loadingAnimation.json";
 import { Navigate } from "react-router-dom";
+import useAuth from "../cutom hooks/useAuth";
 
 const AdminRoute = ({ children }) => {
-  const { user, loading } = UseAuth();
+  const { user, loading } = useAuth();
   const axiosSecure = UseAxiosSecure();
   if (loading) {
     return (

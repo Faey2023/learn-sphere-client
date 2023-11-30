@@ -1,8 +1,8 @@
 import Title from "../../../Shared/design/Title";
-import UseAuth from "../../../hooks/UseAuth";
+import useAuth from "../../../cutom hooks/useAuth";
 
 const Profile = () => {
-  const { user } = UseAuth();
+  const { user } = useAuth()
   const { photoURL, displayName, roll, email, phoneNumber } = user || {};
   return (
     <>

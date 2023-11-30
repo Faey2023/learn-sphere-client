@@ -1,10 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/online-education-removebg-preview.png";
-import UseAuth from "../hooks/UseAuth";
 import toast from "react-hot-toast";
 import { FaSearch } from "react-icons/fa";
+import useAuth from "../cutom hooks/useAuth";
 const Navbar = () => {
-  const { user, logout } = UseAuth();
+  const { user, logout } = useAuth();
   const handleLogout = () => {
     logout()
       .then((res) => {
