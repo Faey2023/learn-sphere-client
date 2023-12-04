@@ -1,11 +1,11 @@
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../../../hooks/UseAxiosSecure";
-import UseTotalUsers from "../../../../hooks/UseTotalusers";
+// import UseTotalUsers from "../../../../hooks/UseTotalusers";
 
 const UserTable = ({ user }) => {
   const { _id, name, email, image, role } = user || {};
   const axiosSecure = UseAxiosSecure();
-  const [, refetch] = UseTotalUsers();
+  // const [, refetch] = UseTotalUsers();
   const handleMakeAdmin = (id) => {
     console.log(id);
     Swal.fire({
@@ -19,7 +19,7 @@ const UserTable = ({ user }) => {
       if (result.isConfirmed) {
         axiosSecure.patch(`/users/admin/${id}`).then((res) => {
           if (res.data.modifiedCount > 0) {
-            refetch();
+            // refetch();
             Swal.fire({
               position: "top",
               icon: "success",

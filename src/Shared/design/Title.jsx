@@ -6,7 +6,7 @@ const Title = ({ heading }) => {
     // </div>
     <div>
       <h1
-        className="relative text-xl font-bold uppercase w-[150px] text-center m-auto whitespace-nowrap border-2 border-solid"
+        className="relative text-xl font-bold uppercase w-[300px] text-center m-auto whitespace-nowrap border-2 border-solid"
         style={{ padding: "5px 11px 3px 11px" }}
       >
         {heading}

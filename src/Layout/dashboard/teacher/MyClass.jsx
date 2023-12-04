@@ -1,11 +1,11 @@
 import Title from "../../../Shared/design/Title";
 
-const MyEnroll = () => {
+const MyClass = () => {
   return (
     <div>
-      <Title heading={"My enroll"} />
+      <Title heading={"My Class"} />
     </div>
   );
 };
 
-export default MyEnroll;
+export default MyClass;

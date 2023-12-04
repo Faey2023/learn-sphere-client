@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
 import toast from "react-hot-toast";
-import useAuth from "../../../cutom hooks/useAuth";
+import useAuth from "../../../custom hooks/useAuth";
 
 const SignIn = () => {
   const navigate = useNavigate();

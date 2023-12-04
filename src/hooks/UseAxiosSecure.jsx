@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../cutom hooks/useAuth";
+import useAuth from "../custom hooks/useAuth";
 
 const axiosSecure = axios.create({
   // baseURL: "http://localhost:5000",

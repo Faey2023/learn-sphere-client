@@ -3,12 +3,13 @@ import { Controller, useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../hooks/UseAxiosSecure";
 import Lottie from "lottie-react";
-// import { useEffect } from "react";
 import form from "../../assets/data/form.json";
-import useAuth from "../../cutom hooks/useAuth";
+import useAuth from "../../custom hooks/useAuth";
 
 const Teach = () => {
   const { user } = useAuth();
+  // const [users] = UseTotalUsers();
+  // const users = totalUser();
   const { email, photoURL, displayName } = user || {};
   const axiosSecure = UseAxiosSecure();
   const {
@@ -24,6 +25,7 @@ const Teach = () => {
       (data.email = email),
       (data.photo = photoURL),
       (data.name = displayName),
+      (data.role = "instructor"),
     ];
     console.log(teacherReview);
     axiosSecure.post("/teachers", data).then((res) => {

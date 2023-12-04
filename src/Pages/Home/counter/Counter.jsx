@@ -2,11 +2,11 @@ import classAnimation from "../../../assets/data/classAnimation.json";
 import Lottie from "lottie-react";
 import UseClass from "../../../hooks/UseClass";
 import CountUp from "react-countup";
-import UseTotalUsers from "../../../hooks/UseTotalusers";
+import useGetUsers from "../../../custom hooks/useGetUsers";
 
 const Counter = () => {
   const [classes] = UseClass();
-  const [users] = UseTotalUsers();
+  const [users] = useGetUsers();
   console.log(classes.length);
   return (
     <>

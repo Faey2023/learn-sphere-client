@@ -1,8 +1,7 @@
-import React from "react";
 import { Navigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import loadingAnimation from "../assets/data/loadingAnimation.json";
-import useAuth from "../cutom hooks/useAuth";
+import useAuth from "../custom hooks/useAuth";
 
 const Private = ({ children }) => {
   const { user, loading } = useAuth();
@@ -14,7 +13,7 @@ const Private = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate to="signin" />;
+  return <Navigate to="/signin" />;
 };
 
 export default Private;

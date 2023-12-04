@@ -1,11 +1,10 @@
-import logo from "../assets/images/online-education-removebg-preview.png";
 
 const Footer = () => {
   return (
     <>
       <footer className="footer p-10 bg-base-200 text-base-content">
         <aside>
-          <img className="w-20 h-20" src={logo} alt="logo" />
+          <img className="w-20 h-20" src='https://i.ibb.co/zRx4x6D/online-education-removebg-preview.png' alt="logo" />
           <p className="font-bold text-xl">Learn Sphere</p>
           <p> Empowering Education, Connecting Minds since 2020.</p>
         </aside>

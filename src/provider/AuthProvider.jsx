@@ -63,13 +63,14 @@ const AuthProvider = ({ children }) => {
   };
 
   const google = () => {
-    signInWithPopup(auth, googleProvider);
+   return signInWithPopup(auth, googleProvider);
   };
+
   const github = () => {
-    signInWithPopup(auth, githubProvider);
+   return signInWithPopup(auth, githubProvider);
   };
   const facebook = () => {
-    signInWithPopup(auth, facebookProvider);
+   return signInWithPopup(auth, facebookProvider);
   };
 
   const authInfo = {

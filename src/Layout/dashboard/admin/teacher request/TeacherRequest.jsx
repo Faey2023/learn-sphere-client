@@ -1,3 +1,4 @@
+import Title from "../../../../Shared/design/Title";
 import UseTeacherRequest from "../../../../hooks/UseTeacherRequest";
 import TeacherRequestTable from "./TeacherRequestTable";
 
@@ -5,6 +6,7 @@ const TeacherRequest = () => {
   const [teachers] = UseTeacherRequest();
   return (
     <div>
+      <Title heading={"Teacher Request"} />
       <h1 className="text-center text-3xl mb-4">
         Teacher Request: {teachers.length}
       </h1>

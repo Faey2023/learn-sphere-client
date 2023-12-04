@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import UseAxiosSecure from "../../../hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../../../cutom hooks/useAuth";
+import Title from "../../../Shared/design/Title";
+import useAuth from "../../../custom hooks/useAuth";
 
 const AddClass = () => {
   AOS.init();
@@ -20,28 +21,26 @@ const AddClass = () => {
   const onSubmit = (data) => {
     const courses = [data, (data.teacherName = user?.displayName)];
     console.log(courses);
-    axiosSecure.post("/class", data).then((res) => {
+    axiosSecure.post("/classrequ", data).then((res) => {
       // console.log(res.data);
       Swal.fire({
         position: "top",
         icon: "success",
-        title: "Your class has been saved",
+        title: "Your class has been saved. Wait for approval!",
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate("/class");
     });
+    navigate("/");
   };
   return (
     <div>
+      <Title heading={"Add Class"} />
       <div
         data-aos="flip-left"
         data-aos-duration="1000"
-        className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none border w-[500px] mx-auto p-10 mb-5"
+        className="mt-5 relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none border w-[500px] mx-auto p-10 mb-5"
       >
-        <h4 className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-          Add Class
-        </h4>
         <p className="mt-1 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
           Enter the details.
         </p>

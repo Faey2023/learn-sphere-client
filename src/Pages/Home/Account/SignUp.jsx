@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import SharedSignIn from "../../../Shared/SharedSignIn";
 import toast from "react-hot-toast";
 import UseAxiosPublic from "../../../hooks/UseAxiosPublic";
-import useAuth from "../../../cutom hooks/useAuth";
+import useAuth from "../../../custom hooks/useAuth";
 
 const SignUp = () => {
   const axiosPublic = UseAxiosPublic();
@@ -25,6 +25,7 @@ const SignUp = () => {
     createUser(data.email, data.password)
       .then((res) => {
         console.log(res.user);
+
         const userInfo = {
           name: data.name,
           email: data.email,
@@ -35,6 +36,7 @@ const SignUp = () => {
         axiosPublic.post("/users", userInfo).then((res) => {
           if (res.data.insertedId) {
             reset();
+            navigate("/");
             Swal.fire({
               title: "User created successfully!",
               showClass: {
@@ -52,7 +54,6 @@ const SignUp = () => {
                 `,
               },
             });
-            navigate("/");
           }
         });
       })

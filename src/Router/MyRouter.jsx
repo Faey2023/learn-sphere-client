@@ -5,15 +5,17 @@ import Error from "../error/Error";
 import SignUp from "../Pages/Home/Account/SignUp";
 import SignIn from "../Pages/Home/Account/SignIn";
 import Teach from "../Pages/teaching/Teach";
-import Dashboard from "../Layout/dashboard/Dashboard";
 import Profile from "../Layout/dashboard/Profile/Profile";
-import MyEnroll from "../Layout/dashboard/enroll/MyEnroll";
 import Private from "../provider/Private";
 import AllClasses from "../Layout/all classes/AllClasses";
 import ClassDetails from "../Layout/all classes/ClassDetails";
 import AddClass from "../Layout/dashboard/teacher/AddClass";
 import TotalUsers from "../Layout/dashboard/admin/users/TotalUsers";
 import TeacherRequest from "../Layout/dashboard/admin/teacher request/TeacherRequest";
+import MyEnroll from "../Layout/dashboard/student/enroll/MyEnroll";
+import MyClass from "../Layout/dashboard/teacher/MyClass";
+import AllClass from "../Layout/dashboard/admin/all class/AllClass";
+import DashboardMain from "../Layout/dashboard/DashboardMain";
 
 const MyRouter = createBrowserRouter([
   {
@@ -54,11 +56,12 @@ const MyRouter = createBrowserRouter([
     path: "/signin",
     element: <SignIn />,
   },
+
   {
     path: "/dashboard",
     element: (
       <Private>
-        <Dashboard />
+        <DashboardMain />
       </Private>
     ),
     children: [
@@ -66,17 +69,24 @@ const MyRouter = createBrowserRouter([
         path: "dashboard",
         element: <h1>Dashboard</h1>,
       },
-      { path: "myenroll", element: <MyEnroll /> },
       { path: "profile", element: <Profile /> },
-      {
-        path: "addclass",
-        element: <AddClass />,
-      },
       { path: "users", element: <TotalUsers /> },
       {
         path: "request",
         element: <TeacherRequest />,
       },
+      {
+        path: "allclass",
+        element: <AllClass />,
+      },
+      //student
+      { path: "myenroll", element: <MyEnroll /> },
+      //teacher
+      {
+        path: "addclass",
+        element: <AddClass />,
+      },
+      { path: "myclass", element: <MyClass /> },
     ],
   },
 ]);

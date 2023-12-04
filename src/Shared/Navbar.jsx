@@ -1,8 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/images/online-education-removebg-preview.png";
 import toast from "react-hot-toast";
-import { FaSearch } from "react-icons/fa";
-import useAuth from "../cutom hooks/useAuth";
+import useAuth from "../custom hooks/useAuth";
 const Navbar = () => {
   const { user, logout } = useAuth();
   const handleLogout = () => {
@@ -66,7 +64,11 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex">
-            <img className="w-20 h-20" src={logo} alt="logo" />
+            <img
+              className="w-20 h-20"
+              src="https://i.ibb.co/zRx4x6D/online-education-removebg-preview.png"
+              alt="logo"
+            />
             <p className="text-3xl font-bold my-auto">Learn Sphere</p>
           </div>
         </div>
